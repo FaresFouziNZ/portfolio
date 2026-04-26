@@ -48,14 +48,14 @@ export default function Header() {
             >
               GitHub
             </Link>
-            <Link
+            {/* <Link
               className="mt-8 inline-block rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="https://wa.me/966535361361"
               passHref
               target="_blank"
             >
               WhatsApp
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
