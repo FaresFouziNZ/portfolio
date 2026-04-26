@@ -22,7 +22,7 @@ export default function Navbar({ sections }: NavbarProps) {
           {sections.map((section) => (
             <a
               key={section.id}
-              href={`#${section.id}`}
+              href={`#/portfolio/${section.id}`}
               className="text-gray-800 transition-colors duration-200 hover:text-blue-500"
             >
               {section.title}
@@ -48,7 +48,7 @@ export default function Navbar({ sections }: NavbarProps) {
             {sections.map((section) => (
               <a
                 key={section.id}
-                href={`#${section.id}`}
+                href={`#/portfolio/${section.id}`}
                 className="block text-gray-800 transition-colors duration-200 hover:text-blue-500"
                 onClick={() => setIsOpen(false)}
               >
