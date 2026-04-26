@@ -14,13 +14,9 @@
 // };
 
 // export default nextConfig;
-const repoName = "portfolio";
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-  trailingSlash: true,
+  reactStrictMode: true,
   images: {
     unoptimized: true,
   },
