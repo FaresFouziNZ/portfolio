@@ -14,11 +14,13 @@
 // };
 
 // export default nextConfig;
-/** @type {import('next').NextConfig} */
+const repoName = "portfolio";
 
 const nextConfig = {
   output: "export",
-  assetPrefix: "./", // ✅ KEY FIX
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
