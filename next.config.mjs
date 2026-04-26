@@ -1,10 +1,28 @@
-/** @type {import('next').NextConfig} */
+// /** @type {import('next').NextConfig} */
+
+// const isProd = process.env.NODE_ENV === "production";
+// const nextConfig = {
+//   reactStrictMode: true,
+//   basePath: "/portfolio",
+//   // output: "export",
+//   images: {
+//     domains: ["b2332b54ed.imgdist.com"],
+//     unoptimized: true,
+//   },
+//   trailingSlash: true,
+//   assetPrefix: isProd ? "./" : undefined,
+// };
+
+// export default nextConfig;
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
-  reactStrictMode: true,
-  basePath: "/portfolio",
   output: "export",
+  reactStrictMode: true,
+  basePath: "/portfolio", // repo name
+  assetPrefix: isProd ? "/portfolio/" : "",
   images: {
-    domains: ["b2332b54ed.imgdist.com"],
+    unoptimized: true,
   },
 };
 

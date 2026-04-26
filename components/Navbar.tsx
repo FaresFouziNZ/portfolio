@@ -1,21 +1,23 @@
-import { useState } from "react"
-import { FiMenu, FiX } from "react-icons/fi"
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 interface NavbarProps {
-  sections: { id: string; title: string }[]
+  sections: { id: string; title: string }[];
 }
 
 export default function Navbar({ sections }: NavbarProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <nav className="fixed z-50 w-full bg-white shadow-lg">
+    <nav className="fixed z-50 w-full bg-white/30 backdrop-blur-md border-b border-white/40">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <div className="text-lg font-semibold text-gray-800">Fares Alnzlawe</div>
+        <div className="text-lg font-semibold text-white-800">
+          Fares Alnzlawe
+        </div>
         <div className="hidden space-x-8 md:flex">
           {sections.map((section) => (
             <a
@@ -28,8 +30,15 @@ export default function Navbar({ sections }: NavbarProps) {
           ))}
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-gray-800 focus:outline-none">
-            {isOpen ? <FiX className="size-6" /> : <FiMenu className="size-6" />}
+          <button
+            onClick={toggleMenu}
+            className="text-gray-800 focus:outline-none"
+          >
+            {isOpen ? (
+              <FiX className="size-6" />
+            ) : (
+              <FiMenu className="size-6" />
+            )}
           </button>
         </div>
       </div>
@@ -50,5 +59,5 @@ export default function Navbar({ sections }: NavbarProps) {
         </div>
       )}
     </nav>
-  )
+  );
 }
