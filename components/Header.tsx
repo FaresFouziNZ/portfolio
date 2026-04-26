@@ -7,7 +7,7 @@ export default function Header() {
       <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-pink-400 to-purple-700 opacity-50"></div>
       <div className="container relative z-10 mx-auto flex flex-col items-center px-4 md:flex-row md:items-start md:space-x-6">
         <Image
-          className="rounded-2xl border-4 border-white shadow-lg"
+          className="rounded-2xl border-4 border-white shadow-lg mt-5"
           src="https://b2332b54ed.imgdist.com/pub/bfra/sglmpqsl/gl7/p81/4h1/201867080c.jpeg"
           alt="Fares Alnzlawe"
           width={200}
