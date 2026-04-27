@@ -13,7 +13,7 @@ export default function Header() {
           width={200}
           height={200}
         />
-        <div className="mt-6 text-left md:mt-0 self-center">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">
             Fares Alnzlawe
           </h1>
@@ -25,7 +25,7 @@ export default function Header() {
           </h2>
           <div className="flex gap-4">
             <Link
-              className="mt-8 inline-block rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
+              className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="mailto:fares.alnzlawe@gmail.com"
               passHref
               target="_blank"
@@ -33,7 +33,7 @@ export default function Header() {
               E-mail
             </Link>
             <Link
-              className="mt-8 inline-block rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
+              className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="https://www.linkedin.com/in/fares-alnzlawe/"
               passHref
               target="_blank"
@@ -41,15 +41,23 @@ export default function Header() {
               LinkedIn
             </Link>
             <Link
-              className="mt-8 inline-block rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
+              className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="https://github.com/FaresFouziNZ"
               passHref
               target="_blank"
             >
               GitHub
             </Link>
+            <Link
+              className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
+              href="https://drive.google.com/file/d/1vYXN8FtBJl8tukNk3sl-kOqOptifb95g/view"
+              passHref
+              target="_blank"
+            >
+              CV
+            </Link>
             {/* <Link
-              className="mt-8 inline-block rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
+              className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="https://wa.me/966535361361"
               passHref
               target="_blank"
