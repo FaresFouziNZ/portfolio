@@ -13,7 +13,7 @@ export default function Header() {
           width={200}
           height={200}
         />
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="mt-6 text-left md:mt-0 self-center">
           <h1 className="text-5xl font-extrabold text-white drop-shadow-lg">
             Fares Alnzlawe
           </h1>
@@ -23,7 +23,7 @@ export default function Header() {
           <h2 className="mt-2 text-1xl font-semibold text-white drop-shadow-lg">
             Building scalable data systems and modern mobile applications
           </h2>
-          <div className="flex gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               className="flex items-center justify-center gap-2 rounded-lg bg-white px-8 py-4 font-semibold text-orange-400 shadow-lg transition-colors duration-200 hover:bg-gray-100 hover:shadow-xl"
               href="mailto:fares.alnzlawe@gmail.com"
