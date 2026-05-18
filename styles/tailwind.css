@@ -1,3 +1,138 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ----------------------------------------------------------------------------
+   Base — Terminal CRT aesthetic
+---------------------------------------------------------------------------- */
+:root {
+  --crt-tint: 124, 227, 139;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: #05070a;
+  color: #d6deeb;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-feature-settings: "ss01", "ss02", "calt", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(124, 227, 139, 0.35);
+  color: #f4faf6;
+}
+
+/* Subtle grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(124, 227, 139, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 227, 139, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+/* CRT scanlines — applied as a fixed overlay */
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* CRT vignette */
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 59;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+/* Slow rolling scan beam */
+.crt-beam {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 58;
+  overflow: hidden;
+}
+.crt-beam::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14vh;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124, 227, 139, 0.035) 50%,
+    transparent 100%
+  );
+  animation: scanbeam 9s linear infinite;
+}
+@keyframes scanbeam {
+  0% { transform: translateY(-30vh); }
+  100% { transform: translateY(130vh); }
+}
+
+/* Text glow utility */
+.text-glow {
+  text-shadow: 0 0 8px rgba(124, 227, 139, 0.6), 0 0 24px rgba(124, 227, 139, 0.25);
+}
+.text-glow-amber {
+  text-shadow: 0 0 8px rgba(255, 180, 84, 0.55), 0 0 24px rgba(255, 180, 84, 0.2);
+}
+.text-glow-cyan {
+  text-shadow: 0 0 8px rgba(92, 207, 230, 0.55), 0 0 24px rgba(92, 207, 230, 0.2);
+}
+
+/* ASCII box border helper */
+.ascii-box {
+  border: 1px solid #1c2330;
+  background: linear-gradient(180deg, #0d1219 0%, #0a0e14 100%);
+}
+
+/* Reduced motion: silence the heavy animations and smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .crt-beam,
+  .crt-scanlines,
+  .animate-flicker,
+  .animate-scan {
+    animation: none !important;
+  }
+  .crt-beam::after {
+    display: none;
+  }
+}
+
+/* Subtle scrollbar that fits the terminal look */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0a0e14; }
+::-webkit-scrollbar-thumb {
+  background: #1c2330;
+  border-radius: 6px;
+  border: 2px solid #0a0e14;
+}
+::-webkit-scrollbar-thumb:hover { background: #2a3344; }
