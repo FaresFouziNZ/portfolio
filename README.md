@@ -1,36 +1,75 @@
-npmThis is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fares Alnzlawe — Portfolio (v2)
 
-## Getting Started
+A terminal-themed portfolio for Fares Alnzlawe. Dark CRT aesthetic, monospaced
+throughout, boot sequence hero, animated section reveals, and a sticky
+command-style nav.
 
-First, run the development server:
+## Stack
+
+- **Next.js 14** App Router with static export (`output: 'export'`)
+- **Tailwind CSS 3** for styling (custom terminal palette)
+- **Framer Motion** for entrance + interaction animations
+- **JetBrains Mono** via `next/font` for consistent type
+- **lucide-react** for outline icons
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  layout.tsx           Root layout, fonts, CRT overlay stack
+  page.tsx             Page composition
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+lib/
+  data.ts              Single source of truth — bio, projects, jobs, skills
+  utils.ts             cn() class merger
 
-## Learn More
+components/
+  CommandNav.tsx       Sticky terminal-tab nav with active-section tracking
+  terminal/
+    Window.tsx         Terminal window chrome (traffic lights, title bar)
+    Prompt.tsx         user@host:~/path $ prefix
+    Cursor.tsx         Blinking caret (block/bar/underscore)
+    Typewriter.tsx     Character-by-character text reveal
+    ASCIIBox.tsx       Labelled bordered region for skill clusters
+  sections/
+    Hero.tsx           Boot sequence + ASCII banner + identity card
+    About.tsx          Bio in a terminal window
+    Projects.tsx       Expandable file-tree of project READMEs
+    Experience.tsx     git log --oneline timeline
+    Skills.tsx         ASCII-boxed clusters
+    Extras.tsx         tail -f achievements.log
+    Contact.tsx        ./connect --to fares
+```
 
-To learn more about Next.js, take a look at the following resources:
+**To update CV content:** edit `lib/data.ts` only. Every section reads from
+that file — no copy lives in components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The site is statically exported (`output: 'export'`) and built with
+`basePath: '/portfolio'` to match the existing GitHub Pages URL
+`https://faresfouzinz.github.io/portfolio/`.
 
-## Deploy on Vercel
+```bash
+npm run deploy
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+That command runs `next build` (which writes static HTML/JS/CSS to `out/`),
+then pushes the contents to the `gh-pages` branch via the `gh-pages` package.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+
+- All copy is sourced verbatim from the previous portfolio — no placeholder
+  text and no fabricated projects/roles.
+- The CRT overlay (scanlines + vignette + slow scan beam) respects
+  `prefers-reduced-motion` and falls back to a static look.
+- Mobile-first: ASCII banner swaps to a compact variant under 640px,
+  nav scrolls horizontally instead of wrapping, project rows collapse.
