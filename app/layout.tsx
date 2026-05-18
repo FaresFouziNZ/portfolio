@@ -11,14 +11,24 @@ const mono = JetBrains_Mono({
 
 // basePath needs to be reflected in the OG image URL because absolute social
 // preview URLs are required (LinkedIn, Twitter, Slack won't resolve relative).
-const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+// Reads NEXT_PUBLIC_BASE_PATH so deploys at root (Vercel) and at a sub-path
+// (GitHub Pages) both produce correct URLs without code changes.
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const OG_IMAGE = `${BASE_PATH}/assets/og.png`;
+
+// Site URL used as metadataBase for OG/Twitter cards.
+//   - Vercel sets VERCEL_URL automatically (hostname only, we add scheme)
+//   - Otherwise honour NEXT_PUBLIC_SITE_URL if set
+//   - Final fallback is the GitHub Pages canonical
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://faresfouzinz.github.io");
 
 export const metadata: Metadata = {
   title: "fares:~$ whoami",
   description:
     "Fares Alnzlawe - Software Engineer building end-to-end data-driven applications. Data engineering, Flutter, and scalable backends.",
-  metadataBase: new URL("https://faresfouzinz.github.io"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "Fares Alnzlawe - Software Engineer",
     description:
