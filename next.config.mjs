@@ -1,22 +1,13 @@
-// /** @type {import('next').NextConfig} */
-
-// const isProd = process.env.NODE_ENV === "production";
-// const nextConfig = {
-//   reactStrictMode: true,
-//   basePath: "/portfolio",
-//   // output: "export",
-//   images: {
-//     domains: ["b2332b54ed.imgdist.com"],
-//     unoptimized: true,
-//   },
-//   trailingSlash: true,
-//   assetPrefix: isProd ? "./" : undefined,
-// };
-
-// export default nextConfig;
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
+// Static export for GitHub Pages at faresfouzinz.github.io/portfolio
 const nextConfig = {
   reactStrictMode: true,
+  output: "export",
+  basePath: isProd ? "/portfolio" : "",
+  assetPrefix: isProd ? "/portfolio/" : "",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
