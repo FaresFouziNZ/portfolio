@@ -234,7 +234,15 @@ export const skills: SkillGroup[] = [
   {
     name: "Backend Development",
     accent: "amber",
-    items: ["Python", "Scala", "Java", "REST APIs", "OOP", "Linux", "Git / GitHub"],
+    items: [
+      "Python",
+      "Scala",
+      "Java",
+      "REST APIs",
+      "OOP",
+      "Linux",
+      "Git / GitHub",
+    ],
   },
   {
     name: "Product & System Thinking",
@@ -317,7 +325,7 @@ export const extras: Extra[] = [
     },
   },
   {
-    title: "Data Engineering Nano Degree (In Progress)",
+    title: "Data Engineering Nano Degree",
     entity: "IBM",
     bullets: [
       "Currently completing a structured program covering data engineering fundamentals including data pipelines, databases, and large-scale data processing.",
