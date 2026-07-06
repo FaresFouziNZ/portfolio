@@ -234,15 +234,7 @@ export const skills: SkillGroup[] = [
   {
     name: "Backend Development",
     accent: "amber",
-    items: [
-      "Python",
-      "Scala",
-      "Java",
-      "REST APIs",
-      "OOP",
-      "Linux",
-      "Git / GitHub",
-    ],
+    items: ["Python", "Scala", "Java", "REST APIs", "OOP", "Linux", "Git / GitHub"],
   },
   {
     name: "Product & System Thinking",
@@ -328,9 +320,9 @@ export const extras: Extra[] = [
     title: "Data Engineering Nano Degree",
     entity: "IBM",
     bullets: [
-      "Currently completing a structured program covering data engineering fundamentals including data pipelines, databases, and large-scale data processing.",
-      "Gaining hands-on experience with ETL workflows, data modeling, and storage systems.",
-      "Applying learned concepts to real-world projects involving streaming and batch processing.",
+      "Completed a structured program covering data engineering fundamentals including data pipelines, databases, and large-scale data processing.",
+      "Gained hands-on experience with ETL workflows, data modeling, and storage systems.",
+      "Applied learned concepts to real-world projects involving streaming and batch processing.",
     ],
     logo: {
       src: "/assets/ibm.svg",
